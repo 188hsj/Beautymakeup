@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Beautymakeup.Model</name>
+    </assembly>
+    <members>
+        <member name="T:Beautymakeup.Model.TokenModel">
+            <summary>
+            令牌
+            </summary>
+        </member>
+        <member name="P:Beautymakeup.Model.TokenModel.Uid">
+            <summary>
+            Id
+            </summary>
+        </member>
+        <member name="P:Beautymakeup.Model.TokenModel.Role">
+            <summary>
+            角色
+            </summary>
+        </member>
+        <member name="P:Beautymakeup.Model.User.Id">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:Beautymakeup.Model.User.Name">
+            <summary>
+            姓名
+            </summary>
+        </member>
+        <member name="P:Beautymakeup.Model.User.Age">
+            <summary>
+            年龄
+            </summary>
+        </member>
+    </members>
+</doc>
