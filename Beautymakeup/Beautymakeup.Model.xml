@@ -4,6 +4,21 @@
         <name>Beautymakeup.Model</name>
     </assembly>
     <members>
+        <member name="P:Beautymakeup.Model.Entitys.ApplicationUser.CreationTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:Beautymakeup.Model.Entitys.ApplicationUser.LastModifiedTime">
+            <summary>
+            最后一次修改时间
+            </summary>
+        </member>
+        <member name="P:Beautymakeup.Model.Entitys.ApplicationUserRole.CreationTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
         <member name="T:Beautymakeup.Model.TokenModel">
             <summary>
             令牌

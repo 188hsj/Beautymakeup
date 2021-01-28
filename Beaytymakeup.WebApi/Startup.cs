@@ -1,8 +1,10 @@
 using Beautymakeup.Common.Helper;
+using Beautymakeup.Model.DataBase;
 using Beautymakeup.WebApi.SetUp;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -30,9 +32,14 @@ namespace Beautymakeup.WebApi
 
             services.AddSwaggerSetup();
 
+            services.AddControllers();
+
             services.AddAuthorrizationSetup();
 
-            services.AddControllers();
+            services.AddDbContext<ApplicationDbContext>(option =>
+            {
+                option.UseSqlServer(AppSettings.app(new string[] { "AppSettings", "ConnectionString" }));
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
