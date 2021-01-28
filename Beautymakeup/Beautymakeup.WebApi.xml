@@ -15,6 +15,11 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:Beautymakeup.WebApi.Controllers.RoleController">
+            <summary>
+            角色管理
+            </summary>
+        </member>
         <member name="M:Beautymakeup.WebApi.SetUp.UnitOfWorkServiceSetup.AddUnitOfWorkService(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
             <summary>
             在<see cref ="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>中注册给定上下文作为服务的工作单元。

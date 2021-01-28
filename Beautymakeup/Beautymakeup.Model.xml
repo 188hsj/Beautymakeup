@@ -14,5 +14,25 @@
             密码
             </summary>
         </member>
+        <member name="P:Beautymakeup.Model.ViewModel.RoleViewModel.Id">
+            <summary>
+            角色Id
+            </summary>
+        </member>
+        <member name="P:Beautymakeup.Model.ViewModel.RoleViewModel.Name">
+            <summary>
+            角色名称
+            </summary>
+        </member>
+        <member name="P:Beautymakeup.Model.ViewModel.RoleViewModel.DisplayName">
+            <summary>
+            角色显示名
+            </summary>
+        </member>
+        <member name="P:Beautymakeup.Model.ViewModel.RoleViewModel.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
     </members>
 </doc>

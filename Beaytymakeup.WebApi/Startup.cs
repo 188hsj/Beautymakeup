@@ -1,3 +1,4 @@
+using Autofac;
 using Beautymakeup.Common.Helper;
 using Beautymakeup.Model.DataBase;
 using Beautymakeup.WebApi.SetUp;
@@ -23,6 +24,14 @@ namespace Beautymakeup.WebApi
             Configuration = configuration;
         }
 
+        public void ConfigureContainer(ContainerBuilder builder)
+        {
+            //统一后缀service 自动注入容器中
+            builder.RegisterAssemblyTypes(typeof(Program).Assembly)
+                .Where(x => x.Name.EndsWith("Service", StringComparison.OrdinalIgnoreCase))
+                .AsImplementedInterfaces();
+        }
+
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -30,13 +39,16 @@ namespace Beautymakeup.WebApi
         {
             services.AddSingleton(new AppSettings(Configuration));
 
-            services.AddSwaggerSetup();
+            services.AddSwaggerService();
 
             services.AddControllers();
 
-            services.AddAuthorrizationSetup();
-            //添加工作单元服务
+            services.AddAuthorrizationService();
+            //注册工作单元服务(同时注册DbContext)
             services.AddUnitOfWorkService();
+
+            //注册automapper服务
+            services.AddAutomapperService();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -12,7 +12,7 @@ namespace Beautymakeup.WebApi.SetUp
 {
     public static class AuthorizationSetup
     {
-        public static void AddAuthorrizationSetup(this IServiceCollection services)
+        public static void AddAuthorrizationService(this IServiceCollection services)
         {
             if (services == null) throw new ArgumentNullException(nameof(services));
 

@@ -1,3 +1,4 @@
+using Autofac.Extensions.DependencyInjection;
 using Beautymakeup.Core.UnitOfWork;
 using Beautymakeup.Model.DataBase;
 using Microsoft.AspNetCore.Hosting;
@@ -22,6 +23,7 @@ namespace Beautymakeup.WebApi
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
+             .UseServiceProviderFactory(new AutofacServiceProviderFactory())//应用Autofac作为依赖注入容器
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
