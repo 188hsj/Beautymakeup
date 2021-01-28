@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Beautymakeup.Model
+namespace Beautymakeup.Common
 {
     /// <summary>
     /// 令牌
@@ -17,6 +17,6 @@ namespace Beautymakeup.Model
         /// <summary>
         /// 角色
         /// </summary>
-        public string Role { get; set; }
+        public IList<string> Role { get; set; }
     }
 }

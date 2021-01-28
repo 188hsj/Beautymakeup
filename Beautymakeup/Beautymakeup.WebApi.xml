@@ -4,15 +4,24 @@
         <name>Beautymakeup.WebApi</name>
     </assembly>
     <members>
-        <member name="T:Beautymakeup.WebApi.Controllers.UserController">
+        <member name="T:Beautymakeup.WebApi.Controllers.AuthenticateController">
             <summary>
             用户管理
             </summary>
         </member>
-        <member name="M:Beautymakeup.WebApi.Controllers.UserController.Hello">
+        <member name="M:Beautymakeup.WebApi.Controllers.AuthenticateController.Hello">
             <summary>
             hello 请求
             </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Beautymakeup.WebApi.SetUp.UnitOfWorkServiceSetup.AddUnitOfWorkService(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            在<see cref ="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>中注册给定上下文作为服务的工作单元。
+            同时注册了dbcontext
+            </summary>
+            <param name="services"></param>
+            <remarks>此方法仅支持一个db上下文，如果多次调用，将抛出异常。</remarks>
             <returns></returns>
         </member>
     </members>

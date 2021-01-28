@@ -23,6 +23,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Beautymakeup.Common\Beautymakeup.Common.csproj" />
+    <ProjectReference Include="..\Beautymakeup.Core\Beautymakeup.Core.csproj" />
     <ProjectReference Include="..\Beautymakeup.Model\Beautymakeup.Model.csproj" />
   </ItemGroup>
 

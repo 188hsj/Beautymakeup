@@ -35,11 +35,8 @@ namespace Beautymakeup.WebApi
             services.AddControllers();
 
             services.AddAuthorrizationSetup();
-
-            services.AddDbContext<ApplicationDbContext>(option =>
-            {
-                option.UseSqlServer(AppSettings.app(new string[] { "AppSettings", "ConnectionString" }));
-            });
+            //添加工作单元服务
+            services.AddUnitOfWorkService();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

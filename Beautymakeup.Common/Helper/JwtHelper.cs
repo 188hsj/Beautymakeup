@@ -1,4 +1,4 @@
-﻿using Beautymakeup.Model;
+﻿using Beautymakeup.Common;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
@@ -30,7 +30,11 @@ namespace Beautymakeup.Common.Helper
                 new Claim(JwtRegisteredClaimNames.Aud,aud)
             };
             //将一个用户的多个角色全部赋予
-            claims.AddRange(tokenModel.Role.Split(',').Select(r => new Claim(ClaimTypes.Role, r)));
+            foreach (var roleName in tokenModel.Role)
+            {
+                var roleClaim = new Claim(ClaimTypes.Role, roleName);
+                claims.Add(roleClaim);
+            }
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
@@ -46,31 +50,31 @@ namespace Beautymakeup.Common.Helper
             return encodeJwt;
         }
 
-        /// <summary>
-        /// 解析JwtToken获取用户id和角色
-        /// </summary>
-        /// <param name="jwtstr"></param>
-        /// <returns></returns>
-        public static TokenModel SerializerJwt(string jwtstr)
-        {
-            var jwtHandler = new JwtSecurityTokenHandler();
-            var token = jwtHandler.ReadJwtToken(jwtstr);
-            object role;
-            try
-            {
-                token.Payload.TryGetValue(ClaimTypes.Role, out role);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
-            var tm = new TokenModel
-            {
-                Uid = token.Id.ToString(),
-                Role = token != null ? role.ToString() : ""
-            };
-            return tm;
-        }
+        ///// <summary>
+        ///// 解析JwtToken获取用户id和角色
+        ///// </summary>
+        ///// <param name="jwtstr"></param>
+        ///// <returns></returns>
+        //public static TokenModel SerializerJwt(string jwtstr)
+        //{
+        //    var jwtHandler = new JwtSecurityTokenHandler();
+        //    var token = jwtHandler.ReadJwtToken(jwtstr);
+        //    object role;
+        //    try
+        //    {
+        //        token.Payload.TryGetValue(ClaimTypes.Role, out role);
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        Console.WriteLine(e);
+        //        throw;
+        //    }
+        //    var tm = new TokenModel
+        //    {
+        //        Uid = token.Id.ToString(),
+        //        Role = token != null ? role : ""
+        //    };
+        //    return tm;
+        //}
     }
 }
